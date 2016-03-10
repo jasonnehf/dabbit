@@ -32,33 +32,52 @@
 	BODY
  -->
 	<div class="container">
-			<table class="table table-striped table-hover">
-				<thead>
-					<tr>
-						<th class="col-xs-2">Date</th>
-						<th class="col-xs-5">Details</th>
-						<th class="amount col-xs-2">Credits</th>
-						<th class="amount col-xs-2">Debits</th>
-						<th class="amount col-xs-1">Delete?</th>
 
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat='xa in xactions'>
-						<td>{{xa.date | date:mediumDate}}</td>
-						<td>{{xa.description}}</td>
-						<td class='amount positive' ng-show="xa.amount < 0"></td>
-						<td class='amount positive' ng-show="xa.amount >=0">{{xa.amount}}</td>
-						<td class='amount negative' ng-show="xa.amount >=0"></td>
-						<td class='amount negative' ng-show="xa.amount < 0">{{xa.amount}}</td>
-						<td class='delete-col col-xs-1'><button ng-click='removeXaction(xa)' class='btn btn-xs btn-danger'><span aria-hidden='true' class='glyphicon glyphicon-xs glyphicon-remove'></span></button></td>
-					</tr>
-					<tr>
-						<th class='label-total'>Total</th>
-						<th class='value-total' colspan=3>{{getBalance() | currency}}</th>
-						<th></th>
-				</tbody>
-			</table>
+	<div class="row">
+			<form action="submit" class="form-group form-horizontal">
+				<div class="col-xs-6">
+				<label for="input-desc" class="control-label">Description</label>
+				<input required id="input-desc" type="text" class="form-control" ng-model="newX.description">
+				</div>
+				<div class="col-xs-2">
+				<label for="input-date" class="control-label">Date</label>
+				<input required id="input-date" type="date" class="form-control" ng-model="newX.date">
+				</div>
+				<div class="col-xs-2">
+				<label for="input-amount" class="control-label">Amount</label>
+				<input required id="input-amount" type="number" class="form-control" ng-model="newX.amount">
+				</div>
+				<button type='button' ng-submit="" class="btn btn-primary">Add Transaction</button>
+			</form>
+		</div>
+	</div>
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th class="col-xs-2">Date</th>
+					<th class="col-xs-5">Details</th>
+					<th class="amount col-xs-2">Credits</th>
+					<th class="amount col-xs-2">Debits</th>
+					<th class="amount delete-col col-xs-1">Delete?</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat='xa in xactions'>
+					<td>{{xa.date | date:mediumDate}}</td>
+					<td>{{xa.description}}</td>
+					<td class='amount positive' ng-show="xa.amount < 0"></td>
+					<td class='amount positive' ng-show="xa.amount >=0">{{xa.amount}}</td>
+					<td class='amount negative' ng-show="xa.amount >=0"></td>
+					<td class='amount negative' ng-show="xa.amount < 0">{{xa.amount}}</td>
+					<td class='delete-col col-xs-1'><button ng-click='removeXaction(xa)' class='btn btn-xs btn-danger'><span aria-hidden='true' class='glyphicon glyphicon-xs glyphicon-remove'></span></button></td>
+				</tr>
+				<tr>
+					<th class='label-total'>Total</th>
+					<th class='value-total' colspan=3>{{getBalance() | currency}}</th>
+					<th></th>
+			</tbody>
+		</table>
 	</div>
 	<!-- </div> -->
 

@@ -28,7 +28,7 @@ app.controller('dabbitCtrl', function($scope, $http) {
 		console.log("GET DB");
 		$http({
 			method:'GET',
-			url:'http://localhost:8008/xactions/',
+			url:'http://ancient-harbor-22725.herokuapp.com/xactions/',
 		})
 		.then(function(res) {
 			console.log("res.data: ",res.data);

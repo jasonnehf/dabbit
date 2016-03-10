@@ -1,7 +1,5 @@
 'use strict';
 
-const PORT=8008;
-
 var express=require('express');
 var morgan=require('morgan');
 
@@ -9,6 +7,9 @@ var bodyParser=require('body-parser');
 
 var http=require('http');
 var path=require('path');
+var process=require('process');
+
+const PORT=process.env.PORT || 8008;
 
 var app=express();
 

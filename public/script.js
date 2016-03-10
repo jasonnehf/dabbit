@@ -15,7 +15,8 @@ app.controller('dabbitCtrl', function($scope, $http) {
 
 	}
 
-	$scope.removeXaction = function(id) {
+	$scope.removeXaction = function(xa) {
+
 
 	}
 

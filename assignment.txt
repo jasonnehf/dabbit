@@ -1,0 +1,20 @@
+Bank App
+
+Create an app in Angular and Express that will manage a user's bank account.
+
+Outside of the MVP features, the way your app works (the way the page is arranged, which inputs you decide to use, how your data is stored, organized and presented, etc.) will mostly be up to you.  You will need to decide what makes sense!
+
+MVP:
+	1.	When the user loads the page, they can see their balance, and make deposits and withdrawals. 
+	2.	Transactions can be deleted. 
+	3.	Your app should track the user's transactions, and list them on their account page. 
+	4.	Credits (transactions that add money) and debits (transactions that remove money) should be viewed distinctly. Credits should show their values in a credit
+			column, and debits in a debit column. 
+	5.	The balance is always kept accurate. 
+
+Extra Features:
+	1.	Be able to update information in transaction. The balance should remain accurate. 
+	2.	Add separate totals for credits and debits, in addition to the overall balance. 
+	3.	Add search filtering in Angular, or sorting. 
+
+Cade Nichols, Instructor

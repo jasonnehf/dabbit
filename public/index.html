@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dabbit -- A Check Balancing App</title>
+
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.js"></script>
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://bootswatch.com/superhero/bootstrap.min.css">
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body ng-app='dabbit' ng-controller='dabbitCtrl'>
+<!--
+	HEADER
+ -->
+
+	<div class="jumbotron page-header">
+	<div class="container">
+		<div class="col-xs-6 "><h1>Dabbit!</h1>
+			<span class="page-header-subtext">Get your shit together, man.</span>
+		</div>
+		<div class="col-xs-6 text-right">
+			<img class="page-header-img" src="checkbook.png" alt="">
+		</div>
+	</div>
+	</div>
+<!--
+	END HEADER
+ -->
+
+<!--
+	BODY
+ -->
+	<div class="container">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th class="col-xs-2">Date</th>
+						<th class="col-xs-5">Details</th>
+						<th class="amount col-xs-2">Credits</th>
+						<th class="amount col-xs-2">Debits</th>
+						<th class="amount col-xs-1">Delete?</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat='xa in xactions'>
+						<td>{{xa.date | date:mediumDate}}</td>
+						<td>{{xa.description}}</td>
+						<td class='amount positive' ng-show="xa.amount < 0"></td>
+						<td class='amount positive' ng-show="xa.amount >=0">{{xa.amount}}</td>
+						<td class='amount negative' ng-show="xa.amount >=0"></td>
+						<td class='amount negative' ng-show="xa.amount < 0">{{xa.amount}}</td>
+						<td class='delete-col col-xs-1'><button ng-click='removeXaction(xa)' class='btn btn-xs btn-danger'><span aria-hidden='true' class='glyphicon glyphicon-xs glyphicon-remove'></span></button></td>
+					</tr>
+					<tr>
+						<th class='label-total'>Total</th>
+						<th class='value-total' colspan=3>{{getBalance() | currency}}</th>
+						<th></th>
+				</tbody>
+			</table>
+	</div>
+	<!-- </div> -->
+
+
+
+
+
+<!--         -->
+<!-- SCRIPPS -->
+<!--         -->
+
+
+
+	<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="./script.js"></script>
+</body>
+</html>

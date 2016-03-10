@@ -1,0 +1,36 @@
+.jumbotron {
+	background-color:#DF691A;
+	color:white;
+}
+
+.page-header-img {
+	height:130px;
+}
+
+th {
+	font-size:175%;
+}
+
+.amount {
+	text-align:right;
+}
+
+.amount.positive {
+	color:#00ff00;
+}
+
+.amount.negative {
+	color:#ff0000;
+}
+
+td {
+	font-size:125%;
+}
+
+.value-total {
+	text-align:right;
+}
+
+.delete-col {
+	text-align:center;
+}
